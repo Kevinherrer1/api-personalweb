@@ -13,19 +13,16 @@ export class Message {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => User, (user) => user.messages, { nullable: false })
-  @JoinColumn({ name: 'sender_id', referencedColumnName: 'id' })
+  @ManyToOne(() => User, { nullable: false })
+  @JoinColumn({ name: 'sender_id' })
   sender: User;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
-  subject: string;
-
   @Column({ type: 'text', nullable: false })
-  body: string;
+  content: string;
 
   @CreateDateColumn({ name: 'sent_at', type: 'timestamp with time zone' })
   sentAt: Date;
 
-  @Column({ name: 'is_read', type: 'boolean', default: false })
+  @Column({ default: false })
   isRead: boolean;
 }

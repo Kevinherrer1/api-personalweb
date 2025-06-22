@@ -13,19 +13,14 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
+  @Column({ type: 'varchar', length: 50, unique: true, nullable: false })
+  username: string;
+
+  @Column({ type: 'varchar', length: 100, unique: true, nullable: false })
   email: string;
 
-  @Column({
-    name: 'password_hash',
-    type: 'varchar',
-    length: 255,
-    nullable: false,
-  })
-  passwordHash: string;
-
-  @Column({ name: 'full_name', type: 'varchar', length: 255, nullable: true })
-  fullName: string;
+  @Column({ type: 'varchar', length: 255, nullable: false })
+  password: string;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp with time zone' })
   createdAt: Date;
