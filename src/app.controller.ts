@@ -9,4 +9,9 @@ export class AppController {
   getHola(): any {
     return { mensaje: this.appService.getHello() };
   }
+
+  @Get('ping')
+  ping() {
+    return { message: 'pong' };
+  }
 }
