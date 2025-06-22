@@ -17,6 +17,9 @@ export class Message {
   @JoinColumn({ name: 'sender_id' })
   sender: User;
 
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  subject: string;
+
   @Column({ type: 'text', nullable: false })
   content: string;
 
